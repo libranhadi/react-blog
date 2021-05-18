@@ -4,11 +4,11 @@ import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import Dashboard from "../Dashboard";
 import Login from "../Login";
 import Registrasi from "../Registrasi";
-import { createStore } from "redux";
+import { applyMiddleware, createStore } from "redux";
 import { rootReducer } from "../../../config/redux/reducer";
 import { Provider } from "react-redux";
-
-const storeRedux = createStore(rootReducer);
+import thunk from "redux-thunk";
+const storeRedux = createStore(rootReducer, applyMiddleware(thunk));
 function App() {
   return (
     <Provider store={storeRedux}>

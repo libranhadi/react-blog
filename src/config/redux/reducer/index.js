@@ -1,7 +1,9 @@
 import ActionType from "../action/index";
 const initialState = {
-  popup: false,
+  popup: "ladu",
   isLogin: false,
+  isLoading: false,
+  userName: "ladusing",
 };
 export const rootReducer = (state = initialState, action) => {
   switch (action.type) {
@@ -15,6 +17,17 @@ export const rootReducer = (state = initialState, action) => {
         ...state,
         isLogin: action.value,
       };
+    case ActionType.USERNAME:
+      return {
+        ...state,
+        userName: action.value,
+      };
+    case "IS_LOADING":
+      return {
+        ...state,
+        isLoading: action.value,
+      };
+    default:
+      return state;
   }
-  return state;
 };

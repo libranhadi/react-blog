@@ -61,4 +61,13 @@ button.btn:hover {
   background: #1873bb;
   cursor: pointer;
 }
+
+button.btn.disable {
+  background: #bfbfbf;
+  border: 1px solid #2196f3;
+}
+
+button.btn.disable.hover {
+  cursor: not-allowed;
+}
 /*# sourceMappingURL=Registrasi.css.map */

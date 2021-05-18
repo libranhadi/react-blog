@@ -1,39 +1,30 @@
 import React, { Component } from "react";
 import "./Registrasi.css";
-import firebase from "../../../config/firebase/firebase";
+import { connect } from "react-redux";
+import Button from "../../../components/atom/Button";
+import { RegistrasiApi } from "../../../config/redux/action/api";
 class Registrasi extends Component {
   state = {
     email: "",
     password: "",
   };
   handleChange = (e) => {
+    // mengubah state target id yaitu email dan password dan menangkap value,
     this.setState({
       [e.target.id]: e.target.value,
     });
   };
 
   handleSubmit = () => {
-    // console.log("email", this.state.email);
-    // console.log("password", this.state.password);
+    //varuable yang dikirim untuk action pada register api
     const { email, password } = this.state;
-    console.log("before authen", email, password);
-    firebase
-      .auth()
-      .createUserWithEmailAndPassword(email, password)
-      .then((res) => {
-        // Signed in
-        // var user = userCredential.user;
-        // ...
+    // console.log("before authen", email, password);
 
-        console.log("success", res);
-      })
-      .catch((error) => {
-        var errorCode = error.code;
-        var errorMessage = error.message;
-        // ..
-
-        console.log("error", errorCode, errorMessage);
-      });
+    // menangkap props dari dispatch dan mengirimkan email dan password ke action
+    this.props.registerApi({
+      email: email,
+      katasandi: password,
+    });
   };
   render() {
     return (
@@ -54,15 +45,26 @@ class Registrasi extends Component {
             type="password"
             onChange={this.handleChange}
           />
-
-          <button className="btn" onClick={this.handleSubmit}>
-            Register
-          </button>
+          {/* mengirimkan props kepada button */}
+          <Button
+            onClick={this.handleSubmit}
+            title={"register"}
+            loading={this.props.load}
+          />
         </div>
-        {/* <button>Go to Dashboard</button> */}
       </div>
     );
   }
 }
+const stateRedux = (state) => {
+  // memanggil loading global
+  return {
+    load: state.isLoading,
+  };
+};
 
-export default Registrasi;
+const dispatchRedux = (dispatch) => ({
+  // menngirimkan parameter data yang berisi email dan password
+  registerApi: (data) => dispatch(RegistrasiApi(data)),
+});
+export default connect(stateRedux, dispatchRedux)(Registrasi);
