@@ -3,7 +3,7 @@ const initialState = {
   popup: "ladu",
   isLogin: false,
   isLoading: false,
-  userName: "ladusing",
+  userName: {},
 };
 export const rootReducer = (state = initialState, action) => {
   switch (action.type) {

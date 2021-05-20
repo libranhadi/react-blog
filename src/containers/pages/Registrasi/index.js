@@ -15,16 +15,27 @@ class Registrasi extends Component {
     });
   };
 
-  handleSubmit = () => {
+  handleSubmit = async () => {
     //varuable yang dikirim untuk action pada register api
     const { email, password } = this.state;
     // console.log("before authen", email, password);
 
     // menangkap props dari dispatch dan mengirimkan email dan password ke action
-    this.props.registerApi({
-      email: email,
-      katasandi: password,
-    });
+    const res = await this.props
+      .registerApi({
+        email: email,
+        password: password,
+      })
+      .catch((err) => err);
+    if (res) {
+      console.log("ngokey");
+      this.setState({
+        email: "",
+        password: "",
+      });
+    } else {
+      console.log("salah");
+    }
   };
   render() {
     return (
@@ -37,6 +48,7 @@ class Registrasi extends Component {
             placeholder="Email"
             type="text"
             onChange={this.handleChange}
+            value={this.state.email}
           />
           <input
             className="input"
@@ -44,6 +56,7 @@ class Registrasi extends Component {
             placeholder="Password"
             type="password"
             onChange={this.handleChange}
+            value={this.state.password}
           />
           {/* mengirimkan props kepada button */}
           <Button
