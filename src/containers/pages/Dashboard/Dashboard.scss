@@ -1,0 +1,71 @@
+.container {
+  max-width: 900px;
+  display: block;
+  margin: auto;
+  .input-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+  .input-title {
+    width: 40%;
+    background: white;
+    padding: 12px;
+    border: 1px solid green;
+
+    border-radius: 4px;
+    color: gray;
+    font-size: 14px;
+    margin-bottom: 12px;
+    box-sizing: border-box;
+    outline: none;
+  }
+  .input-content {
+    width: 40%;
+    border: 1px solid green;
+    border-radius: 4px;
+    padding: 12px;
+    min-height: 200px;
+
+    color: gray;
+    font-size: 14px;
+    margin-bottom: 16px;
+    box-sizing: border-box;
+    outline: none;
+  }
+  .save-btn {
+    padding: 12px 15px;
+    border-radius: 14px;
+    background: white;
+    border: 2px solid green;
+    color: green;
+    font-size: 14px;
+    font-weight: bold;
+    text-transform: uppercase;
+    outline: none;
+  }
+  .card-content {
+    border: 1px solid black;
+    border-radius: 4px;
+    padding: 16px;
+    box-shadow: 4px 3px 9px black;
+    margin-bottom: 16px;
+    p {
+      margin: 0;
+    }
+    .title {
+      font-size: 24px;
+      font-weight: bold;
+    }
+    .date {
+      font-size: 12px;
+    }
+    .content {
+      margin-top: 20px;
+      font-size: 14px;
+    }
+  }
+}

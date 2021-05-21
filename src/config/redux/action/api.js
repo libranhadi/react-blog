@@ -1,5 +1,5 @@
 import ActionType from ".";
-import firebase from "../../firebase/firebase";
+import firebase, { database } from "../../firebase/firebase";
 
 // menangkap parameter data yang berisi email dan password user dari page registrasi
 export const RegistrasiApi = (data) => (dispatch) => {
@@ -97,5 +97,13 @@ export const LoginApi = (data) => (dispatch) => {
         reject(false);
         console.log("error", errorCode, errorMessage);
       });
+  });
+};
+
+export const addDataToApi = (data) => (dispatch) => {
+  database.ref("/notes" + data.userId).set({
+    title: data.title,
+    content: data.content,
+    date: data.date,
   });
 };

@@ -1,1 +1,91 @@
-/* No CSS *//*# sourceMappingURL=Dashboard.css.map */
+.container {
+  max-width: 900px;
+  display: block;
+  margin: auto;
+}
+
+.container .input-form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.container .input-title {
+  width: 40%;
+  background: white;
+  padding: 12px;
+  border: 1px solid green;
+  border-radius: 4px;
+  color: gray;
+  font-size: 14px;
+  margin-bottom: 12px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  outline: none;
+}
+
+.container .input-content {
+  width: 40%;
+  border: 1px solid green;
+  border-radius: 4px;
+  padding: 12px;
+  min-height: 200px;
+  color: gray;
+  font-size: 14px;
+  margin-bottom: 16px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  outline: none;
+}
+
+.container .save-btn {
+  padding: 12px 15px;
+  border-radius: 14px;
+  background: white;
+  border: 2px solid green;
+  color: green;
+  font-size: 14px;
+  font-weight: bold;
+  text-transform: uppercase;
+  outline: none;
+}
+
+.container .card-content {
+  border: 1px solid black;
+  border-radius: 4px;
+  padding: 16px;
+  -webkit-box-shadow: 4px 3px 9px black;
+          box-shadow: 4px 3px 9px black;
+  margin-bottom: 16px;
+}
+
+.container .card-content p {
+  margin: 0;
+}
+
+.container .card-content .title {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.container .card-content .date {
+  font-size: 12px;
+}
+
+.container .card-content .content {
+  margin-top: 20px;
+  font-size: 14px;
+}
+/*# sourceMappingURL=Dashboard.css.map */

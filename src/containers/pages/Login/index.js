@@ -3,11 +3,13 @@ import { connect } from "react-redux";
 import Button from "../../../components/atom/Button";
 import { LoginApi } from "../../../config/redux/action/api";
 import time from "../../../config/redux/action/username";
+import { useHistory } from "react-router-dom";
 class Login extends Component {
   state = {
     email: "",
     password: "",
   };
+
   changeUserName = () => {
     this.props.changeUser();
   };
@@ -18,6 +20,7 @@ class Login extends Component {
   };
   handleSubmitLogin = async () => {
     const { email, password } = this.state;
+    const { history } = this.props;
     const login = await this.props
       .loginUser({
         email: email,
@@ -29,6 +32,7 @@ class Login extends Component {
         email: "",
         password: "",
       });
+      history.push("/");
       console.log("login success");
     } else {
       console.log("login failed");

@@ -1,15 +1,30 @@
 import React, { Component } from "react";
-
+import { addDataToApi } from "../../../config/redux/action/api";
+import { connect } from "react-redux";
+import "./Dashboard.css";
 class Dashboard extends Component {
+  handleSaveNotes = () => {
+    alert("simpan");
+  };
   render() {
     return (
-      <div>
-        <h1>Dashboard Page</h1>
-        <button>Go to Register</button>
-        <button>Go to Login</button>
+      <div className="container">
+        <div className="input-form">
+          <input className="input-title" />
+          <textarea className="input-content"></textarea>
+          <button className="save-btn">Save</button>
+        </div>
+        <hr />
+        <div className="card-content">
+          <p className="title">Title</p>
+          <p className="date">Date</p>
+          <p className="content">Content Notes</p>
+        </div>
       </div>
     );
   }
 }
-
-export default Dashboard;
+const reduxDispatch = (dispatch) => ({
+  saveNotes: dispatch(addDataToApi()),
+});
+export default connect(null, reduxDispatch)(Dashboard);
